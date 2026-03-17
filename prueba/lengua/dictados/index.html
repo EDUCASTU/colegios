@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Dictados - CEIP Poeta Antón</title>
+    <title>Generador de Dictados</title>
     <!-- Tailwind CSS para los estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons para los iconos -->
@@ -152,7 +152,7 @@
                     </div>
                     <div>
                         <h1 class="text-2xl font-extrabold text-slate-800 tracking-tight">Generador de Dictados</h1>
-                        <p class="text-slate-500 text-sm font-medium">CEIP Poeta Antón - Herramienta Docente</p>
+                        <p class="text-slate-500 text-sm font-medium">Herramienta Docente</p>
                     </div>
                 </div>
                 
@@ -329,9 +329,9 @@
                         <label for="juego-velocidad" class="hidden sm:inline">Velocidad:</label>
                         <i data-lucide="gauge" class="w-4 h-4 sm:hidden"></i>
                         <select id="juego-velocidad" class="bg-transparent font-bold text-amber-400 outline-none cursor-pointer">
-                            <option value="0.25">Lenta</option>
-                            <option value="0.5" selected>Normal</option>
-                            <option value="0.9">Rápida</option>
+                            <option value="0.15">Lenta</option>
+                            <option value="0.3" selected>Normal</option>
+                            <option value="0.6">Rápida</option>
                         </select>
                     </div>
                     <button onclick="pausarReanudarJuego()" id="btn-pausa-juego" class="bg-indigo-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded font-bold hover:bg-indigo-600 text-xs sm:text-sm shadow-md border border-indigo-50 transition-colors">Pausar</button>
@@ -441,17 +441,20 @@
             1: [
                 "El alumno Yago y la niña Lia dan un paseo corto por el muelle. Ellos comen un helado muy rico en la playa de Candás. ¡Guau! Este parque es genial para jugar.",
                 "Los alumnos de nuestra clase organizan su material escolar. Aquella tarde, nosotros fuimos al Parque de les Conserveres. ¡Ah! Ganamos tres carreras preciosas.",
-                "El tigre veloz bebe agua limpia cerca del árbol grande. Mi mejor amigo tiene un barco azul y una toalla nueva. La vaca tranquila come uva y tomate en el valle." 
+                "El tigre veloz bebe agua limpia cerca del árbol grande. Mi mejor amigo tiene un barco azul y una toalla nueva. La vaca tranquila come uva y tomate en el valle.",
+                "Los niños nadan en la playa hermosa. El abuelo Marcos come en la sidrería típica. Nosotros cuidamos las plantas verdes y cerramos el grifo siempre."
             ],
             2: [
                 "Este fin de semana, Khadija y Yoel prepararon su mochila con mucha alegría. Esos dos amigos estudian en el Colegio Poeta Antón. Primero, dieron un paseo por aquel muelle hermoso y vieron el faro a lo lejos. Después, jugaron al escondite cerca del parque.",
                 "Durante una mañana soleada, la clase recogió varios residuos en los espacios públicos de Luanco. Algunos niños compartieron sus juegos de mesa con todos los compañeros. ¡Qué maravilla!",
-                "Ayer subimos en el ascensor con un vecino muy amable. Él llevaba un traje azul y un tambor de juguete. Durante el viaje en taxi, vimos una tormenta fuerte desde la ventana. Mi tía compró unas tijeras y un tablero de ajedrez precioso." 
+                "Ayer subimos en el ascensor con un vecino muy amable. Él llevaba un traje azul y un tambor de juguete. Durante el viaje en taxi, vimos una tormenta fuerte desde la ventana. Mi tía compró unas tijeras y un tablero de ajedrez precioso.",
+                "Ayer jugamos a las chapas en la plaza de Bárcena Mayor. Algunas compañeras buscaron hermosas conchas en la arena dorada. Después, pintamos paisajes del mar y aprendimos sobre el reciclaje para cuidar nuestro planeta."
             ],
             3: [
                 "Durante la mañana soleada, los alumnos de sexto, Kairo y Noa, decidieron organizar una excursión muy especial para su clase. Visitaron la Biblioteca de Candás y leyeron un texto interesante sobre el patrimonio cultural asturiano. Luego, pasearon por la senda costera hacia aquel faro imponente, debatiendo varios temas de actualidad. Esas maravillosas vistas desde la Playa de Rebolleres dejaron a todos impresionados. Finalmente, el alcalde inauguró unas exposiciones estupendas en el Museo Antón, y los estudiantes compartieron sus sabrosos bocadillos en una plaza cercana a la iglesia.",
                 "El viernes pasado, varios estudiantes debatieron intensamente sobre el cuidado de las plantas y el ahorro de energía. Nuestro compañero Beltrán propuso donar los libros que no usamos a la Biblioteca de Candás. Mientras tanto, algunas alumnas prepararon un autorretrato literario excelente. Para terminar aquella jornada educativa, todos visitaron el histórico muelle deportivo, admirando los grandes barcos pesqueros amarrados junto a la Rula asturiana.",
-                "El abogado del ayuntamiento analizó el acuerdo sobre el transporte urbano. La temperatura de la atmósfera cambió rápido por la tremenda tempestad. Durante el último trimestre, el turismo aumentó gracias a la nueva avenida principal. El agente de la aduana revisó el archivo antiguo con mucha atención y cuidado extremo." 
+                "El abogado del ayuntamiento analizó el acuerdo sobre el transporte urbano. La temperatura de la atmósfera cambió rápido por la tremenda tempestad. Durante el último trimestre, el turismo aumentó gracias a la nueva avenida principal. El agente de la aduana revisó el archivo antiguo con mucha atención y cuidado extremo.",
+                "Marcelino descubrió valiosas pinturas rupestres en la increíble Cueva de Altamira. Durante la excursión a Santillana, los estudiantes debatieron sobre la historia de las casonas montañesas y aquella colegiata románica. Para terminar, visitamos el imponente palacio de los indianos en Comillas, comprendiendo la importancia de proteger el rico patrimonio cultural y ahorrar energía en nuestra comunidad."
             ]
         };
 
@@ -463,7 +466,8 @@
             "güe/güi": " El simpático pingüino saludó a la cigüeña sin ninguna vergüenza.",
             "bla/ble/bli/blo/blu": " Pablo llevaba una blusa blanca y habló sobre aquel pueblo nublado.",
             "bra/bre/bri/bro/bru": " Braulio hizo una broma amable mientras abría el sobre con brío.",
-            "y/ll": " Ayer llovió mucho, así que el chiquillo desayunó un yogur con galletas."
+            "y/ll": " Ayer llovió mucho, así que el chiquillo desayunó un yogur con galletas.",
+            "h/": " Hoy, Héctor y su hermana hicieron un hermoso huerto con higueras y hortalizas."
         };
 
         const baseCategorias = ["adjetivos", "s. comunes", "s. propios", "verbos"];
@@ -478,8 +482,8 @@
         };
 
         const categoriasGramaticales = {
-            "adjetivos": ['corto', 'rico', 'genial', 'hermoso', 'especial', 'interesante', 'asturiano', 'imponente', 'maravillosas', 'impresionados', 'estupendas', 'sabrosos', 'cercana', 'nueva', 'azules', 'dulces', 'secas', 'blanca', 'amable', 'amarillo', 'simpático', 'histórico', 'pesqueros', 'amarrados', 'educativa', 'grandes', 'excelente', 'preciosas', 'nublado', 'veloz', 'limpia', 'mejor', 'tranquila', 'fuerte', 'precioso', 'urbano', 'tremenda', 'último', 'antiguo', 'extremo'],
-            "adverbios": ['muy', 'primero', 'después', 'luego', 'finalmente', 'mucho', 'ayer', 'cerca', 'lejos', 'no', 'sí', 'así', 'también', 'intensamente', 'tanto', 'rápido'],
+            "adjetivos": ['corto', 'rico', 'genial', 'hermoso', 'especial', 'interesante', 'asturiano', 'imponente', 'maravillosas', 'impresionados', 'estupendas', 'sabrosos', 'cercana', 'nueva', 'azules', 'dulces', 'secas', 'blanca', 'amable', 'amarillo', 'simpático', 'histórico', 'pesqueros', 'amarrados', 'educativa', 'grandes', 'excelente', 'preciosas', 'nublado', 'veloz', 'limpia', 'mejor', 'tranquila', 'fuerte', 'precioso', 'urbano', 'tremenda', 'último', 'antiguo', 'extremo', 'hermosa', 'típica', 'verdes', 'dorada', 'hermosas', 'valiosas', 'rupestres', 'increíble', 'montañesas', 'románica', 'cultural'],
+            "adverbios": ['muy', 'primero', 'después', 'luego', 'finalmente', 'mucho', 'ayer', 'cerca', 'lejos', 'no', 'sí', 'así', 'también', 'intensamente', 'tanto', 'rápido', 'hoy', 'siempre'],
             "artículos": ['el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'al', 'del'],
             "conjunciones": ['y', 'o', 'pero', 'porque', 'aunque', 'mientras', 'que'],
             "demostrativos": ['este', 'esta', 'estos', 'estas', 'ese', 'esa', 'esos', 'esas', 'aquel', 'aquella', 'aquellos', 'aquellas'],
@@ -487,14 +491,14 @@
             "interjecciones": ['guau', 'oh', 'ah', 'uy'],
             "numerales": ['uno', 'dos', 'tres', 'sexto', 'primero'],
             "posesivos": ['mi', 'tu', 'su', 'mis', 'tus', 'sus', 'nuestro', 'nuestra', 'nuestros', 'nuestras'],
-            "preposiciones": ['a', 'ante', 'bajo', 'con', 'contra', 'de', 'desde', 'en', 'entre', 'hacia', 'hasta', 'para', 'por', 'según', 'sin', 'sobre', 'tras'],
+            "preposiciones": ['a', 'ante', 'bajo', 'con', 'contra', 'de', 'desde', 'en', 'entre', 'hacia', 'hasta', 'para', 'por', 'según', 'sin', 'sobre', 'tras', 'durante'],
             "pronombres": ['ellos', 'le', 'se', 'me', 'te', 'nos', 'lo', 'la', 'él', 'nosotros'],
-            "s. comunes": ['alumno', 'alumnos', 'alumnas', 'niña', 'niños', 'paseo', 'muelle', 'helado', 'playa', 'parque', 'fin', 'semana', 'mochila', 'alegría', 'amigos', 'compañeros', 'colegio', 'faro', 'escondite', 'mañana', 'excursión', 'clase', 'biblioteca', 'texto', 'patrimonio', 'senda', 'vistas', 'alcalde', 'exposiciones', 'estudiantes', 'bocadillos', 'bocadillo', 'plaza', 'iglesia', 'bolsa', 'verduras', 'zapatos', 'cerezas', 'hojas', 'jardín', 'amigo', 'guitarra', 'higuera', 'pingüino', 'cigüeña', 'vergüenza', 'pueblo', 'broma', 'chiquillo', 'yogur', 'abuelo', 'galletas', 'material', 'carreras', 'residuos', 'espacios', 'juegos', 'mesa', 'maravilla', 'viernes', 'cuidado', 'plantas', 'ahorro', 'energía', 'compañero', 'libros', 'autorretrato', 'jornada', 'barcos', 'blusa', 'sobre', 'brío', 'tigre', 'agua', 'árbol', 'barco', 'toalla', 'vaca', 'uva', 'tomate', 'valle', 'ascensor', 'vecino', 'traje', 'tambor', 'juguete', 'viaje', 'taxi', 'tormenta', 'ventana', 'tía', 'tijeras', 'tablero', 'ajedrez', 'abogado', 'ayuntamiento', 'acuerdo', 'transporte', 'temperatura', 'atmósfera', 'tempestad', 'trimestre', 'turismo', 'avenida', 'agente', 'aduana', 'archivo', 'atención'],
-            "s. propios": ['yago', 'lia', 'candás', 'khadija', 'yoel', 'poeta', 'antón', 'santarúa', 'kairo', 'noa', 'rebolleres', 'museo', 'víctor', 'celia', 'zacarías', 'jorge', 'ángela', 'guillermo', 'braulio', 'luanco', 'beltrán', 'rula', 'conserveres', 'pablo'],
-            "verbos": ['dan', 'comen', 'es', 'jugar', 'prepararon', 'estudian', 'dieron', 'vieron', 'jugaron', 'decidieron', 'organizar', 'visitaron', 'leyeron', 'pasearon', 'debatiendo', 'dejaron', 'inauguró', 'compartieron', 'llevaba', 'cruzó', 'compró', 'recogieron', 'siguió', 'tocando', 'asustó', 'dio', 'habló', 'llovió', 'desayunó', 'saludó', 'haciendo', 'comió', 'organizan', 'fuimos', 'ganamos', 'recogió', 'debatieron', 'propuso', 'donar', 'usamos', 'terminar', 'admirando', 'hizo', 'abría', 'bebe', 'tiene', 'come', 'subimos', 'vimos', 'analizó', 'cambió', 'aumentó', 'revisó']
+            "s. comunes": ['alumno', 'alumnos', 'alumnas', 'niña', 'niños', 'paseo', 'muelle', 'helado', 'playa', 'parque', 'fin', 'semana', 'mochila', 'alegría', 'amigos', 'compañeros', 'colegio', 'faro', 'escondite', 'mañana', 'excursión', 'clase', 'biblioteca', 'texto', 'patrimonio', 'senda', 'vistas', 'alcalde', 'exposiciones', 'estudiantes', 'bocadillos', 'bocadillo', 'plaza', 'iglesia', 'bolsa', 'verduras', 'zapatos', 'cerezas', 'hojas', 'jardín', 'amigo', 'guitarra', 'higuera', 'pingüino', 'cigüeña', 'vergüenza', 'pueblo', 'broma', 'chiquillo', 'yogur', 'abuelo', 'galletas', 'material', 'carreras', 'residuos', 'espacios', 'juegos', 'mesa', 'maravilla', 'viernes', 'cuidado', 'plantas', 'ahorro', 'energía', 'compañero', 'libros', 'autorretrato', 'jornada', 'barcos', 'blusa', 'sobre', 'brío', 'tigre', 'agua', 'árbol', 'barco', 'toalla', 'vaca', 'uva', 'tomate', 'valle', 'ascensor', 'vecino', 'traje', 'tambor', 'juguete', 'viaje', 'taxi', 'tormenta', 'ventana', 'tía', 'tijeras', 'tablero', 'ajedrez', 'abogado', 'ayuntamiento', 'acuerdo', 'transporte', 'temperatura', 'atmósfera', 'tempestad', 'trimestre', 'turismo', 'avenida', 'agente', 'aduana', 'archivo', 'atención', 'hermana', 'huerto', 'higueras', 'hortalizas', 'sidrería', 'grifo', 'chapas', 'arena', 'conchas', 'paisajes', 'mar', 'reciclaje', 'planeta', 'cueva', 'pinturas', 'historia', 'casonas', 'colegiata', 'palacio', 'indianos', 'importancia', 'comunidad', 'compañeras'],
+            "s. propios": ['yago', 'lia', 'candás', 'khadija', 'yoel', 'poeta', 'antón', 'santarúa', 'kairo', 'noa', 'rebolleres', 'museo', 'víctor', 'celia', 'zacarías', 'jorge', 'ángela', 'guillermo', 'braulio', 'luanco', 'beltrán', 'rula', 'conserveres', 'pablo', 'héctor', 'marcos', 'bárcena', 'mayor', 'santillana', 'altamira', 'comillas'],
+            "verbos": ['dan', 'comen', 'es', 'jugar', 'prepararon', 'estudian', 'dieron', 'vieron', 'jugaron', 'decidieron', 'organizar', 'visitaron', 'leyeron', 'pasearon', 'debatiendo', 'dejaron', 'inauguró', 'compartieron', 'llevaba', 'cruzó', 'compró', 'recogieron', 'siguió', 'tocando', 'asustó', 'dio', 'habló', 'llovió', 'desayunó', 'saludó', 'haciendo', 'comió', 'organizan', 'fuimos', 'ganamos', 'recogió', 'debatieron', 'propuso', 'donar', 'usamos', 'terminar', 'admirando', 'hizo', 'abría', 'bebe', 'tiene', 'come', 'subimos', 'vimos', 'analizó', 'cambió', 'aumentó', 'revisó', 'hicieron', 'nadan', 'cuidamos', 'cerramos', 'jugamos', 'buscaron', 'pintamos', 'cuidar', 'aprendimos', 'descubrió', 'visitamos', 'comprendiendo', 'proteger', 'ahorrar']
         };
 
-        const listadoFallos = ["b/v", "c/z", "g/j", "gue/gui", "güe/güi", "bla/ble/bli/blo/blu", "bra/bre/bri/bro/bru", "y/ll"];
+        const listadoFallos = ["b/v", "c/z", "g/j", "gue/gui", "güe/güi", "bla/ble/bli/blo/blu", "bra/bre/bri/bro/bru", "y/ll", "h/"];
 
         // ==========================================
         // ESTADO GLOBAL
@@ -704,7 +708,7 @@
                 conError: Math.random() < 0.85 ? generarErrorOrtografico(p) : p
             })).sort(() => Math.random() - 0.5);
 
-            mostrarNotificacionJuego("¡Nuevas palabras cayendo!");
+            mostrarNotificacionJuego("¡A CORREGIR!");
         }
 
         function cambiarNivelJuego(nuevoNivel) {
@@ -788,7 +792,7 @@
                     return; 
                 }
                 spawnWord(palabrasPendientesJuego.pop(), canvas);
-            }, 1800);
+            }, 2200);
 
             gameLoopFrame = requestAnimationFrame(gameLoop);
         }
@@ -802,7 +806,7 @@
             const x = Math.random() * (wWidth > 150 ? wWidth - 150 : 50);
             const h = canvas.clientHeight;
             const y = h + 10; 
-            const baseSpeed = 1 + Math.random() * 1.5; 
+            const baseSpeed = 0.6 + Math.random() * 1.0; 
             
             el.style.transform = `translate(${x}px, ${y}px)`;
             canvas.appendChild(el);
