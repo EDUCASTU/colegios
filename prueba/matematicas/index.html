@@ -3,277 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Educativo - Inicio</title>
+    <title>Actividades Multinivel de Matemáticas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f0f2f5;
-            --card-bg: #ffffff;
-            --hover-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            color: #333;
-            display: flex;
-            flex-direction: column;
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 100%);
             min-height: 100vh;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Definición de la animación de expansión de texto */
-        @keyframes stretch-text {
-            0% { letter-spacing: 1px; }
-            50% { letter-spacing: 8px; } /* Se expande */
-            100% { letter-spacing: 1px; } /* Vuelve al sitio */
-        }
-
-        header h1 {
-            margin: 0;
-            font-weight: 300;
-            letter-spacing: 1px;
-            font-size: 1.6rem;
-            animation: stretch-text 8s ease-in-out infinite;
-            text-align: center;
-            width: 100%;
-        }
-
-        header p {
-            margin-top: 5px;
-            margin-bottom: 0;
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        main {
-            flex: 1;
-            max-width: 1050px;
-            margin: 40px auto; 
-            padding: 0 15px;
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .grid-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px 20px; 
-            text-align: center;
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 320px; /* Mantiene la proporción de una tarjeta individual */
-            perspective: 1000px;
             position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-            border-color: var(--accent-color);
+        .game-card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* --- Estilos y Animación 3D --- */
-        
-        .card-svg {
-            width: 110px;  
-            height: 110px; 
-            margin-bottom: 15px; 
-            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.15)); 
-            animation: float 4s ease-in-out infinite;
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 10;
         }
 
-        .reloj .card-svg { animation-delay: 0s; }
-
-        .card:hover .card-svg {
-            animation-play-state: paused;
-            transform: scale(1.15) rotate(2deg);
-            transition: transform 0.3s ease;
+        .floating {
+            animation: floating 3s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0px); }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, 0px); }
         }
 
-        .card h2 {
-            margin: 0;
-            font-size: 1.5rem; 
-            font-weight: 600;
-        }
-
-        .card span {
-            display: block;
-            margin-top: 8px; 
-            font-size: 0.95rem;
-            color: #7f8c8d;
-        }
-
-        /* Borde superior decorativo */
-        .reloj { border-top: 6px solid #e74c3c; }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            color: #7f8c8d;
-            font-size: 0.85rem;
-        }
-
-        .visit-counter {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #7f8c8d;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .btn-volver {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            z-index: 1000;
+            color: #4f46e5;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            cursor: default;
+            gap: 8px;
+            z-index: 50;
         }
-
-        .visit-counter:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-            color: var(--primary-color);
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .visit-counter svg {
-            width: 14px;
-            height: 14px;
+        .btn-volver:hover {
+            background: #4f46e5;
+            color: white;
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center p-4">
 
-    <header>
-        <h1>COLEGIO ................... web de muestra</h1>
-        <p>PEQUEÑAS APPs PARA MEJORAR EL APRENDIZAJE</p>
-        <p>Selecciona la aplicación para acceder al contenido</p>
-    </header>
+    <!-- Botón Volver -->
+    <a href="index.html" class="btn-volver">
+        <span>↩</span> Volver
+    </a>
 
-    <main>
-        <div class="grid-container">
-            <!-- Tarjeta Única: RELOJ -->
-            <a href="reloj/index.html" class="card reloj">
-                <svg class="card-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <radialGradient id="clockBody" cx="30%" cy="30%" r="70%">
-                            <stop offset="0%" style="stop-color:#3498db" />
-                            <stop offset="100%" style="stop-color:#2980b9" />
-                        </radialGradient>
-                        <linearGradient id="clockFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ffffff" />
-                            <stop offset="100%" style="stop-color:#f0f3f4" />
-                        </linearGradient>
-                        <radialGradient id="bellGrad" cx="30%" cy="30%" r="70%">
-                            <stop offset="0%" style="stop-color:#ff7675" />
-                            <stop offset="100%" style="stop-color:#d63031" />
-                        </radialGradient>
-                    </defs>
-                    
-                    <g filter="drop-shadow(3px 5px 4px rgba(0,0,0,0.3))">
-                        <!-- Campanas (Orejas del reloj) -->
-                        <path d="M 18,32 Q 12,12 32,18 Z" fill="url(#bellGrad)"/>
-                        <path d="M 82,32 Q 88,12 68,18 Z" fill="url(#bellGrad)"/>
-                        
-                        <!-- Martillo superior -->
-                        <rect x="48" y="10" width="4" height="12" fill="#7f8c8d" rx="2"/>
-                        <circle cx="50" cy="10" r="4" fill="#95a5a6"/>
-                        
-                        <!-- Patas -->
-                        <rect x="25" y="75" width="6" height="14" rx="3" fill="#7f8c8d" transform="rotate(25 28 82)"/>
-                        <rect x="69" y="75" width="6" height="14" rx="3" fill="#7f8c8d" transform="rotate(-25 72 82)"/>
+    <div class="max-w-7xl w-full pt-16 pb-12"> 
+        <!-- Encabezado Principal -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-black text-indigo-800 mb-4 drop-shadow-sm">
+                Actividades Multinivel
+            </h1>
+            <p class="text-xl md:text-3xl text-purple-600 font-bold bg-white/60 inline-block px-8 py-3 rounded-full shadow-sm border-2 border-purple-200">
+                ¡Matemáticas Divertidas! 🧮
+            </p>
+        </header>
 
-                        <!-- Cuerpo exterior del reloj -->
-                        <circle cx="50" cy="52" r="38" fill="url(#clockBody)"/>
-                        
-                        <!-- Esfera interior blanca -->
-                        <circle cx="50" cy="52" r="30" fill="url(#clockFace)"/>
-                        
-                        <!-- Marcas de los números -->
-                        <!-- 12, 3, 6, 9 -->
-                        <rect x="48" y="25" width="4" height="6" rx="1" fill="#2c3e50"/> 
-                        <rect x="48" y="73" width="4" height="6" rx="1" fill="#2c3e50"/> 
-                        <rect x="25" y="50" width="6" height="4" rx="1" fill="#2c3e50"/> 
-                        <rect x="69" y="50" width="6" height="4" rx="1" fill="#2c3e50"/> 
-
-                        <!-- Manecillas -->
-                        <!-- Horas (apuntando a las 10) -->
-                        <line x1="50" y1="52" x2="38" y2="40" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
-                        <!-- Minutos (apuntando a las 2) -->
-                        <line x1="50" y1="52" x2="65" y2="42" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/>
-                        <!-- Segundos (apuntando a los 25 min) -->
-                        <line x1="50" y1="52" x2="56" y2="72" stroke="#d63031" stroke-width="1.5" stroke-linecap="round"/>
-                        
-                        <!-- Punto central -->
-                        <circle cx="50" cy="52" r="4" fill="#d63031"/>
-                        <circle cx="49" cy="51" r="1.5" fill="white" opacity="0.6"/>
-                        
-                        <!-- Efecto de brillo de cristal -->
-                        <path d="M 25,40 A 30,30 0 0,1 70,30 A 28,28 0 0,0 26,48 Z" fill="white" opacity="0.4"/>
-                    </g>
-                </svg>
-                <h2>RELOJ</h2>
-                <span>Aprende las horas</span>
+        <!-- Contenedor de Juegos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 align-stretch justify-center">
+            
+            <!-- Actividad 1: El Reloj -->
+            <a href="reloj/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-blue-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
+                        <span class="text-6xl floating">⏰</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-blue-600 mb-4">El Reloj</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Aprende las horas, los minutos y domina el tiempo jugando con nuestro reloj interactivo.
+                    </p>
+                    <div class="mt-8 bg-blue-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-blue-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
             </a>
+
+            <!-- Actividad 2: Poeta Calculando -->
+            <a href="poetacalculando/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-rose-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-rose-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-rose-200 transition-colors">
+                        <span class="text-6xl floating" style="animation-delay: 0.5s;">🔢</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-rose-600 mb-4">Poeta Calculando</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Resuelve operaciones, juega con los números y demuestra tu agilidad mental.
+                    </p>
+                    <div class="mt-8 bg-rose-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-rose-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
+            </a>
+
+            <!-- Actividad 3: Mesa de Dibujo -->
+            <a href="mesadedibujo/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-purple-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-purple-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-200 transition-colors">
+                        <span class="text-6xl floating" style="animation-delay: 1s;">📐</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-purple-600 mb-4">Mesa de Dibujo</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Explora la geometría, traza líneas y descubre figuras en esta mesa de diseño especial.
+                    </p>
+                    <div class="mt-8 bg-purple-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-purple-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
+            </a>
+
+            <!-- Actividad 4: FIGURAS 3D -->
+            <a href="figuras3d/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-emerald-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-emerald-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-emerald-200 transition-colors">
+                        <span class="text-6xl floating" style="animation-delay: 1.5s;">🧊</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-emerald-600 mb-4">Figuras 3D</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Explora el mundo en tres dimensiones. ¡Descubre cubos, esferas y pirámides asombrosas!
+                    </p>
+                    <div class="mt-8 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-emerald-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
+            </a>
+
+            <!-- Actividad 5: Taller de Problemas -->
+            <a href="tallerdeproblemas/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-amber-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors">
+                        <span class="text-6xl floating" style="animation-delay: 2s;">💡</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-amber-600 mb-4">Taller de Problemas</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Resuelve desafíos matemáticos y entrena tu lógica para encontrar soluciones geniales.
+                    </p>
+                    <div class="mt-8 bg-amber-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-amber-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
+            </a>
+
+            <!-- NUEVA Actividad 6: Calculadora -->
+            <a href="calculadora/index.html" class="group h-full">
+                <div class="game-card bg-white rounded-3xl p-6 border-4 border-cyan-400 shadow-xl h-full flex flex-col items-center text-center">
+                    <div class="w-28 h-28 bg-cyan-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-cyan-200 transition-colors">
+                        <span class="text-6xl floating" style="animation-delay: 2.5s;">📟</span>
+                    </div>
+                    <h2 class="text-2xl font-black text-cyan-600 mb-4">Calculadora Mágica</h2>
+                    <p class="text-gray-600 text-lg flex-grow">
+                        Una herramienta potente para ayudarte en tus cálculos y comprobaciones matemáticas.
+                    </p>
+                    <div class="mt-8 bg-cyan-500 text-white px-6 py-3 rounded-2xl font-black text-xl shadow-md group-hover:bg-cyan-600 transition-colors w-full">
+                        ¡Entrar!
+                    </div>
+                </div>
+            </a>
+
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Portal Educativo</p>
-    </footer>
-
-    <!-- Elemento visual del contador -->
-    <div class="visit-counter" title="Visitas totales">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-        <span id="contador-visitas">1.428</span>
+        <!-- Footer / Info -->
+        <footer class="mt-20 text-center mb-8">
+            <div class="flex justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all">
+                <span class="text-4xl">➕</span>
+                <span class="text-4xl">➖</span>
+                <span class="text-4xl">✖️</span>
+                <span class="text-4xl">➗</span>
+            </div>
+            <p class="mt-6 text-purple-500 font-bold uppercase tracking-widest text-sm">
+                RECURSOS EDUCATIVOS - MATEMÁTICAS
+            </p>
+        </footer>
     </div>
 
 </body>
